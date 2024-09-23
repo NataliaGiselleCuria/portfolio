@@ -1,0 +1,32 @@
+{
+    "icons": [
+      {
+        "name": "HTML",
+        "url": "/assets/icons/html.png"
+      },
+      {
+        "name": "CSS",
+        "url": "/assets/icons/css.png"      
+      },
+      {
+        "name": "JavaScript",
+        "url": "/assets/icons/js.png"      
+      },
+      {
+        "name": "PHP",
+        "url": "/assets/icons/php.png"      
+      },
+      {
+        "name": "React",
+        "url": "/assets/icons/react.png"      
+      },
+      {
+        "name": "MySQL",
+        "url": "/assets/icons/mysql.png"      
+      },
+      {
+        "name": "Bootstrap",
+        "url": "/assets/icons/bootstrap.png"      
+      }
+    ]
+  }
