@@ -1,6 +1,9 @@
 {
   "projects": [
     {
+      "type": "work",
+      "date": "Freelance - 2024",
+      "cliente": "Dietética Darrona",
       "title": "Darrona Pedidos Online",
       "description": "Diseño e interfaz para 'Dietética Darrona' que permite a los clientes generar pedidos.<br>Incluye envío de e-mail de confirmacion al cliente y de ingreso de pedido nuevo a Darrona.<br>La app cuenta con un panel de administrador donde el propietario puede visualizar y gestionar los pedidos recibidos, actualizar la lista de productos mediante un archivo CSV y modificar información relevante, como zonas de envío, límites de compra y datos de la empresa.",
       "technologies": ["HTML", "CSS", "React", "PHP", "MySQL"],
@@ -12,6 +15,21 @@
       "sourceCode2": "https://github.com/NataliaGiselleCuria/darrona-api"
     },
     {
+      "type": "work",
+      "date": "Freelance - 2024",
+      "cliente": "Dietética Darrona",
+      "title": "Darrona Pedidos Online",
+      "description": "Diseño e interfaz para 'Dietética Darrona' que permite a los clientes generar pedidos.<br>Incluye envío de e-mail de confirmacion al cliente y de ingreso de pedido nuevo a Darrona.<br>La app cuenta con un panel de administrador donde el propietario puede visualizar y gestionar los pedidos recibidos, actualizar la lista de productos mediante un archivo CSV y modificar información relevante, como zonas de envío, límites de compra y datos de la empresa.",
+      "technologies": ["HTML", "CSS", "React", "PHP", "MySQL"],
+      "imgDesktop": "./assets/projects/darrona-d.png",
+      "imgMobile": "./assets/projects/darrona-m-landscape.png",
+      "imgIcon": "./assets/projects/darrona-icon.png",
+      "liveDemo": "https://darrona-pedidos.free.nf",
+      "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",
+      "sourceCode2": "https://github.com/NataliaGiselleCuria/darrona-api"
+    },
+    {
+      "type": "project",
       "title": "Adivina la Palabra",
       "description": "Juego de adivinanza al estilo 'Wordle' con temática de programacíon.<br>El jugador tiene seis intentos para adivinar la palabra oculta. Luego de cada intento el juego proporciona pistas indicando qué letras están en la palabra y si están o no en la posición correcta.",
       "technologies": ["HTML", "CSS", "React"],
@@ -22,6 +40,8 @@
       "sourceCode": "https://github.com/NataliaGiselleCuria/adivinalapalabra"
     },
     {
+
+      "type": "project",
       "title": "Empa-pick",
       "description": "'2 carne, 4 de choclo, 5 de carne, 1 de choclo'.<br>Esta app recolecta individualemnte el pedido de cada comensal para devolver un pedido general organizado y listo para pedir en el lugar de preferencia.<br>El resumen también incluye el monto total del pedido, y la division de gastos por cada comensal.",
       "technologies": ["HTML", "CSS", "JavaScript"],
@@ -31,6 +51,7 @@
       "sourceCode": "https://github.com/NataliaGiselleCuria/Empapick"
     },
     {
+      "type": "project",
       "title": "MNTN",
       "description": "Adaptación de diseño público Figma a código utilizando Bootstrap y animaciones. ",
       "technologies": ["HTML", "CSS", "Bootstrap", "JavaScript"],
@@ -40,6 +61,7 @@
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado2"
     },
     {
+      "type": "project",
       "title": "Digital Project",
       "description": "Adaptación de diseño público Figma a código utilizando Bootstrap. ",
       "technologies": ["HTML", "CSS", "Bootstrap"],
@@ -49,6 +71,7 @@
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado1"
     },
     {
+      "type": "project",
       "title": "Cristales Curia",
       "description": "'Hola mundo'.<br>Diseñé esta página para la empresa familiar antes de iniciar mis estudios en programación.<br>Con mis primeros conocimientos en HTML y CSS pude proyectarla en código, siedo así mi primnera landing page.  ",
       "technologies": ["HTML", "CSS"],
