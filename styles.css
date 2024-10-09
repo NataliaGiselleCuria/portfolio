@@ -29,6 +29,9 @@
     display: none; 
 }
 
+html{
+    scroll-padding-top: 120px;
+}
 
 body{
     background-color: var(--back);
@@ -44,6 +47,9 @@ a{
     position: relative;
     width: 80vw;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
 }
 
 .pages {
@@ -69,6 +75,7 @@ a{
     align-items: flex-end;
 }
 
+
 .page a{
     color: var(--nowhite);
     text-decoration: none;
@@ -76,6 +83,10 @@ a{
 
 .page a:hover{
     color: var(--alt);
+}
+
+.page a::before, .page a::after {
+    content: none;
 }
 
 .scroll {
@@ -109,6 +120,10 @@ a{
     color: white;   
 }
 
+.btn a {
+    font-size: clamp(0.5rem, 3.5vw, 1rem);
+}
+
 #nav {
     box-shadow: 0 0 50px #0000004a;
     position: fixed;
@@ -139,16 +154,17 @@ a{
 }
 
 #home{
-    padding-top: 100px;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 150px;
     min-height: fit-content;
     align-content: center;
 }
 
 #home .row{
     align-items: center;
-    height: 60%;
-    min-height: 400px;
+    height: fit-content;
 }
 
 .presentation {
@@ -156,6 +172,12 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding-left: 0;
+    gap: 50px;
+}
+
+.img-wrapper {
+    max-height: 500px;
 }
 
 .img{
@@ -213,7 +235,7 @@ width: 80%;
 
 h1{
     color: var(--nowhite);
-    font-size: 5.5vw;
+    font-size: clamp(0.1rem, 7vw + 1rem, 5.5rem);
     font-weight: 300;
     line-height: 100%;
 }
@@ -238,14 +260,14 @@ h1 span {
 }
 
 h2{
-    font-weight: 300;
-    font-size: 3rem;
+    font-weight: 400;
+    font-size: clamp(0.1rem, 2vw + 1rem, 3rem);
     margin-left: 8px;
     filter: drop-shadow(-2px 2px 5px #00000080);
     position: relative;
     background-clip: text;
     color: transparent;
-    background-image: linear-gradient(90deg, var(--alt), #6b8b61, var(--alt));
+    background-image: linear-gradient(90deg, var(--light), #865751, var(--light));
     background-size: 50% 50%;
     animation: animatedgradient 10s ease infinite;
     animation-delay: 0s;
@@ -262,7 +284,8 @@ p{
 
 .skills {
     height: 80%;
-    margin: auto;
+    min-height: fit-content;
+    padding: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,15 +326,21 @@ background-size: 300% 300%;
 
 .skills ul {
     height: 70%;
+    min-height: fit-content;
     width: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     justify-content: center;
+    justify-items: center;
+    grid-gap: 10px;
     padding: 0;
 }
 
 #skills li {
+    width: 100%;
+    height: 80%;
+    margin: auto;
     list-style: none;
     display: flex;
     justify-content: center;
@@ -319,7 +348,7 @@ background-size: 300% 300%;
 }
 
 #skills i {
-    font-size: 80px;
+    font-size: clamp(1rem, 8vw + 1rem, 5.5rem);
     color: #968c7e;
     width: 100%;
     height: 100%;
@@ -332,23 +361,19 @@ background-size: 300% 300%;
     height: 100%;
 }
 
-#experience, #projects{
-    padding-top: 80px;
+.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #experience .slide{
-    padding: 50px 75px;
-}
-
-.projects-cont{
-    height: 70%;
-    margin: auto;
-    margin-top: 80px;
+    padding: 5% 0;
 }
 
 h3 {
     color: var(--focus);
-    font-size: 30px;
+    font-size: clamp(0.1rem, 1vw + 1rem, 1.7rem);
     font-weight: 400;
     margin-bottom: 30px;
     filter: drop-shadow(-2px 2px 5px #00000080);
@@ -359,7 +384,7 @@ button.prev, button.next {
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
-    color: black;
+    color: var(--focus);
     border: none;
     cursor: pointer;
     z-index: 2;
@@ -385,7 +410,7 @@ button.next {
     display: flex;
     transition: transform 0.5s ease-in-out;
     height: 100%;
-    width: 100%;
+    width: 100vw;
 }
 
 .slide {
@@ -400,8 +425,13 @@ button.next {
     gap: 20px;
 }
 
+.projects-cont{
+    height: 70%;
+    margin: auto;
+}
+
+
 .project-description {
-    width: 50%;
     margin: auto;
     text-align: left;
     padding-right: 30px;
@@ -414,23 +444,25 @@ button.next {
 }
 
 span.tecnologies {
-    display: flex;
-    height: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    justify-content: center;
+    justify-items: center;
     padding: 20px 0;
-    gap: 10px;
 }
 
 .tecnologies i {
-    font-size: 50px;
+    font-size: 40px;
     color: white;
     align-content: center;
     text-align: center;
     height: 100%;
-    width: 82.5px;
+    width: 55px;
 }
 
 .tecnologies svg {
     fill: white;
+    padding: 4px;
 }
 
 span.links {
@@ -454,13 +486,12 @@ span.links a:hover {
 
 h5 {
     color: var(--alt);
-    font-size: xx-large;
+    font-size: clamp(0.1rem, 1vw + 1rem, 2rem);
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 .mockups {
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -513,16 +544,12 @@ h5 {
 
 @media (max-width: 1400px) {
     h2 {
-        font-size: 4vw;
         margin: 0;
     }
 }
 
 
 @media (max-width: 992px) {
-    #home{
-        padding-top: 80px;
-    }
 
    
 }
@@ -535,16 +562,57 @@ h5 {
 }
 
 @media (max-width: 576px) {
+
+    .pages {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: var(--back);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .page {
+        flex-direction: row; /* Enlaces en fila */
+        width: 100%;
+        justify-content: space-around;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .page a {
+        width: 30%;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .scroll {
+        width: 100%;
+        top: 0;
+        height: 3px; /* Cambiar la barra de scroll a horizontal */
+    }
+
+    .thumb {
+        width: calc(100% / 3);
+        height: 150%;
+        top: -20%;
+        left: 0;
+        transition: left 0.3s ease; 
+    }
+
+    p{
+        font-size:15px
+    }
+    .main{
+        width: 100%;
+    }
+
     #about-me {
         height: 30vh;
-    }
-
-    h1{
-        font-size: 9vw;
-    }
-
-    h2{
-        font-size: 6vw;
     }
 
     .presentation {
@@ -562,6 +630,69 @@ h5 {
     .social a p {
         display: none;
     }
+
+    .skills{
+        margin-top: 30px;
+    }
+
+    .project-description{
+        padding-right: 15px;
+    }
+
+    .slide{
+        padding: 20px 45px;
+    }
+
+    .tecnologies {
+        gap: 0;
+    }
+
+    .tecnologies i{
+        font-size: 40px;
+        width: 50px;
+    }
+}
+
+@media only screen and (max-width: 968px) and (max-height: 450px) and (orientation: landscape)  {
+
+    .main{
+        width: 100vw;
+    }
+    
+    #skills i {
+        font-size: clamp(1rem, 5vw + 1rem, 5.5rem);
+    }
+
+
+    .nav{
+        height: 60px;
+        
+    }
+
+    .btn a {
+        font-size: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    #home {
+        padding-top: 60px;
+    }
+
+    #home .row {
+        height: 80vh;
+    }
+
+    .presentation{
+        gap: 0;
+    }
+
+    h1{
+        font-size: clamp(0.1rem, 4vw + 1rem, 5.5rem);
+    }
+
+    h2{
+        font-size: clamp(0.1rem, 1vw + 1rem, 3rem);
+    }
+
 }
 
 
