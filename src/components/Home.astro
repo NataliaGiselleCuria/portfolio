@@ -10,6 +10,7 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
             <h2 class="animated-text">
                 <span id="typed-text"></span>
                 <span class="cursor animated-text">|</span>
+               
             </h2>  
         </span>
         <span class="social">
@@ -29,6 +30,7 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
                 </svg>
                 Linkedin
             </a>
+            <span class="cv"><a href="./CV-CuriaNatalia.pdf" download="CV-CuriaNatalia.pdf">Descargar CV</a></span>
         </span>
     </div> 
 </section>  
@@ -54,32 +56,35 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 50px;
+    gap: 10px;
 }
 
 .social {
     height: 45px;
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 10px;
+    
 }
 
 .social svg{
-    color: #d5d5d5;
+    color: #ceb9e9;
     height: 100%;
+    width: 25px;
     transition: color 0.5s ease-in-out;
 }
 
 .social a{
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #ceb9e9;
     position: relative;
     display: inline-block;
     text-decoration: none;
-   display: flex;
-   gap: 6px;
-}
-
-.social a p{
-    font-size: large;
-    margin: 0;
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 .button {
@@ -88,24 +93,44 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
   
 }
 
+.cv {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    background-color: var(--focus);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+   
+
+.cv a{
+    color: white;
+}
+
+.cv:hover{
+    background-color: var(--alt);
+}
+
+
 h1{
     font-family: "Rajdhani", sans-serif;
     color: #ceb9e9;
-    font-size: clamp(0.1rem, 1vw + 1rem,3.5rem);
+    font-size: clamp(0.1rem, 1.5vw + 1rem,3.5rem);
     font-weight: 400;
     line-height: 100%;
-    filter: drop-shadow(-2px 2px 5px var(--back));
 }
 
 h2{
     font-family: 'Soapstone';
-    font-size: clamp(0.1rem, 5vw + 1rem, 6rem);
-    filter: drop-shadow(-2px 2px 5px var(--back));
+    font-size: clamp(0.1rem, 5vw + 1rem, 7rem);
     display: inline-flex;
-    padding: 20px;
-    border: 1px solid var(--alt);
+    padding: 20px 0;
     margin: 0;
-    box-shadow: -2px 2px 5px var(--back) ;
 }
 
 #typed-text {
@@ -122,31 +147,6 @@ h2{
     }
 }
 
-p{
-    color: white;
-}
-
-.banner{
-    width: 100vw;
-  position: absolute;
-  left: -50vw; 
-  margin-left: 30vw; 
-  background-color: var(--focus);
-  height: 30px;
-  bottom: 0;
-}
-
-.track {
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 32s linear infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
 
 
 </style>
