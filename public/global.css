@@ -125,7 +125,7 @@ html{
 }
 
 body{
-    background-image: url(/src/assets/back41.png);
+    background-image: url(/public/assets/back41.png);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     color: white;

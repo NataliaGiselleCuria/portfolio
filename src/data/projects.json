@@ -7,25 +7,12 @@
       "title": "Darrona Pedidos Online",
       "description": "Diseño e interfaz para 'Dietética Darrona' que permite a los clientes generar pedidos.<br>Incluye envío de e-mail de confirmacion al cliente y de ingreso de pedido nuevo a Darrona.<br>La app cuenta con un panel de administrador donde el propietario puede visualizar y gestionar los pedidos recibidos, actualizar la lista de productos mediante un archivo CSV y modificar información relevante, como zonas de envío, límites de compra y datos de la empresa.",
       "technologies": ["HTML", "CSS", "React", "PHP", "MySQL"],
-      "imgDesktop": "../src/assets/projects/darrona-d.png",
+      "imgDesktop": "./public/assets/projects/darrona-d.png",
       "imgArray":[
-        "../src/assets/projects/darrona-d.png",
-        "../src/assets/projects/darrona-d.png",
-        "../src/assets/projects/darrona-d.png"
+        "./public/assets/projects/darrona-d.png",
+        "./public/assets/projects/darrona-d.png",
+        "./public/assets/projects/darrona-d.png"
       ],
-      "imgIcon": "/assets/projects/darrona-icon.png",
-      "liveDemo": "https://darrona-pedidos.free.nf",
-      "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",
-      "sourceCode2": "https://github.com/NataliaGiselleCuria/darrona-api"
-    },
-    {
-      "type": "work",
-      "date": "Freelance - 2024",
-      "cliente": "Dietética Darrona",
-      "title": "Darrona Pedidos Online",
-      "description": "Diseño e interfaz para 'Dietética Darrona' que permite a los clientes generar pedidos.<br>Incluye envío de e-mail de confirmacion al cliente y de ingreso de pedido nuevo a Darrona.<br>La app cuenta con un panel de administrador donde el propietario puede visualizar y gestionar los pedidos recibidos, actualizar la lista de productos mediante un archivo CSV y modificar información relevante, como zonas de envío, límites de compra y datos de la empresa.",
-      "technologies": ["HTML", "CSS", "React", "PHP", "MySQL"],
-      "imgDesktop": "../src/assets/projects/darrona-d.png",
       "imgIcon": "/assets/projects/darrona-icon.png",
       "liveDemo": "https://darrona-pedidos.free.nf",
       "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",
@@ -36,8 +23,8 @@
       "title": "Adivina la Palabra",
       "description": "Juego de adivinanza al estilo 'Wordle' con temática de programacíon.<br>El jugador tiene seis intentos para adivinar la palabra oculta. Luego de cada intento el juego proporciona pistas indicando qué letras están en la palabra y si están o no en la posición correcta.",
       "technologies": ["HTML", "CSS", "React"],
-      "imgDesktop": "../src/assets/projects/adivina-d.png",
-      "imgIcon": "../src/assets/projects/adivina-icon.png",
+      "imgDesktop": "./public/assets/projects/adivina-d.png",
+      "imgIcon": "./public/assets/projects/adivina-icon.png",
       "liveDemo": "https://adivinalapalabra.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/adivinalapalabra"
     },
@@ -47,7 +34,7 @@
       "title": "Empa-pick",
       "description": "'2 carne, 4 de choclo, 5 de carne, 1 de choclo'.<br>Esta app recolecta individualemnte el pedido de cada comensal para devolver un pedido general organizado y listo para pedir en el lugar de preferencia.<br>El resumen también incluye el monto total del pedido, y la division de gastos por cada comensal.",
       "technologies": ["HTML", "CSS", "JavaScript"],
-      "imgDesktop": "../src/assets/projects/empa-d.png",
+      "imgDesktop": "./public/assets/projects/empa-d.png",
       "liveDemo": "https://empa-pick.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Empapick"
     },
@@ -56,7 +43,7 @@
       "title": "MNTN",
       "description": "Adaptación de diseño público Figma a código utilizando Bootstrap, Parallax y animaciones. ",
       "technologies": ["HTML", "CSS", "Bootstrap", "JavaScript"],
-      "imgDesktop": "../src/assets/projects/maquetado2-d.png",
+      "imgDesktop": "./public/assets/projects/maquetado2-d.png",
       "liveDemo": "https://maquetado-mntn.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado2"
     },
@@ -65,7 +52,7 @@
       "title": "Digital Project",
       "description": "Adaptación de diseño público Figma a código utilizando Bootstrap. ",
       "technologies": ["HTML", "CSS", "Bootstrap"],
-      "imgDesktop": "../src/assets/projects/maquetado1-d.png",
+      "imgDesktop": "./public/assets/projects/maquetado1-d.png",
       "liveDemo": "https://maquetado-digitalproject.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado1"
     },
@@ -74,7 +61,7 @@
       "title": "Cristales Curia",
       "description": "'Hola mundo'.<br>Diseñé esta página para la empresa familiar antes de iniciar mis estudios en programación.<br>Con mis primeros conocimientos en HTML y CSS pude proyectarla en código, siedo así mi primenera landing page.  ",
       "technologies": ["HTML", "CSS"],
-      "imgDesktop": "../src/assets/projects/cristales-d.png",
+      "imgDesktop": "./public/assets/projects/cristales-d.png",
       "liveDemo": "https://cristalescuria.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/CristalesCuria"
     }
