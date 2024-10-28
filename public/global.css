@@ -536,7 +536,8 @@ footer{
     .social{
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        align-self: baseline;
+        gap: 15px;
     }
 
     .social a  {
