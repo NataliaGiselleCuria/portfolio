@@ -1,0 +1,74 @@
+---
+import icons from '../../src/data/icons.json';
+import projects from '../../src/data/projects.json';
+
+const personalProjects = projects.projects.filter(project => project.type === "project");
+
+---
+
+<section id="projects" class="content">
+    <div class="projects-cont custom-border-l">
+        <h3>Proyectos</h3>
+        <div class="projects">
+                {
+                    personalProjects.map((project, index) => (
+                        <div class="slide proj container row" id={`project-slide-${index + 1}`}>
+                            <div class="project-description col-xxl">
+                                <h5>{project.title}</h5>
+                                <p set:html={project.description}></p>
+                                <div class="technologies">
+                                    {
+                                        project.technologies.map(tech => {
+                                            const icon = icons.icons.find(icon => icon.name === tech); 
+                                            return <span class="tech">{icon ? icon.name : tech}</span>; 
+                                        })
+                                    }
+                                </div>
+                                <span class="links">
+                                    <a href={project.liveDemo} target="_blank">Ver Demo</a>
+                                    <a href={project.sourceCode} target="_blank">GitHub</a>
+                                    {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
+                                </span>
+                            </div>
+                            <div class="mockups col-xxl">
+                                <div class="desktop">
+                                    <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} />
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                } 
+        </div>
+    </div>  
+</section>
+
+<style>
+
+    h5{
+        color: var(--focus);
+    }
+
+    .proj {
+        background: #fbededc9;
+    }
+
+    p{
+        color: var(--back);
+    }
+
+    .links a{
+        color: var(--focus);
+    }
+
+    .links a::after {
+        background-color: var(--focus);
+    }
+
+    
+</style>
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+---
+import icons from '../../src/data/icons.json';
+import projects from '../../src/data/projects.json';
+
+const workProjects = projects.projects.filter(project => project.type === "work");
+---
+
+<section id="experience" class="content">
+    <h3>Experiencia</h3>
+    <div class="work">
+       {
+        workProjects.map((project, index) => (
+            <div class="slide container row" id={`work-${index+1}`}>
+                <div class="project-description col-xxl">
+                    <h6>{project.date}</h6>
+                    <h5 class="animated-text">{project.title}</h5>
+                    <p set:html={project.description}></p>
+                    <div class="technologies">
+                        {
+                            project.technologies.map(tech => {
+                                const icon = icons.icons.find(icon => icon.name === tech);
+                                return <span class="tech">{icon ? icon.name : tech}</span>; 
+                            })
+                        }
+                    </div>
+                    <span class="links">
+                        <a href={project.liveDemo} target="_blank">Ver Demo</a>
+                        <a href={project.sourceCode} target="_blank">GitHub</a>
+                        {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
+                    </span>
+                </div>
+                <div class="mockups col-xxl">
+                    <div class="desktop">
+                        {project.imgArray ? (
+                        // Si existe imgArray, renderiza todas las imágenes del array
+                        project.imgArray.map((imgSrc, index) => (
+                            <img src={imgSrc} alt={`Vista ${index + 1} de ${project.title}`} />
+                        ))
+                        ) : project.imgDesktop ? (
+                        // Si no existe imgArray pero sí imgDesktop, renderiza imgDesktop
+                        <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} />
+                        ) : (
+                        // Si no existe ni imgArray ni imgDesktop, no renderiza nada
+                        null
+                        )}
+                    </div>
+                </div>
+            </div>
+        ))
+        }
+    </div>
+</section>
+
+<style>
+
+   h6{
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+   }
+  
+    .slide{
+        flex-direction: column;
+        padding: 5% 0;
+        padding: 20px;
+        background: #17072385;
+        border: 1px solid var(--alt);
+    }
+
+    .mockups{
+        overflow: hidden;
+    }
+
+    .desktop {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        overflow: scroll;
+    }
+
+    .desktop img {
+        width: 30%;
+        object-fit: cover;
+    }
+
+    .links a::after {
+        background-color: #c7bbbb;
+    }
+
+</style>
+
+
