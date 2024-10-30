@@ -5,13 +5,21 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
 
 <section id="home" class="container content">            
     <div class="presentation">
-        <span>
-            <h1> Natalia Giselle Curia</h1>
-            <h2 class="animated-text">
-                <span id="typed-text"></span>
-                <span class="cursor animated-text">|</span>
-               
-            </h2>  
+        <span class="title">
+            <div class="flex-container">
+                <div class="mask">
+                  <h1 class="reveal-to-left full-width">
+                    <span>Natalia</span> <span>Giselle</span> <span>Curia</span>
+                  </h1>
+                </div>
+                <div class="border-left"></div>
+                <div class="mask">
+                  <h2 class="animated-text reveal-to-right full-width">
+                    <span class="word">web</span>
+                    <span class="word">developer</span> 
+                </h2>
+                </div>
+              </div>  
         </span>
         <span class="social">
             <a href="https://github.com/NataliaGiselleCuria" class="button draw-border">
@@ -36,12 +44,12 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
 </section>  
 
 <style>
+
 #home{
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-top: 60px;
     height: 100vh;
     min-height: fit-content;
     align-content: center;
@@ -59,11 +67,125 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
     gap: 10px;
 }
 
+.title{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    min-height: fit-content;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.mask {
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+}
+
+h1 {
+    font-family: "Rajdhani", sans-serif;
+    color: #ceb9e9;
+    font-size: clamp(0.1rem, 2.5vw + 1rem, 4.5rem);
+    font-weight: 400;
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: center;
+    height: 80%; 
+}
+
+h2{
+    font-family: 'Soapstone';
+    font-size: clamp(2.1rem, 7vw + 1rem, 7rem);
+    padding: 20px 0;
+    margin: 0;
+}
+
+.reveal-to-right {
+  transform: translateX(-100%);
+  animation: reveal-to-right 1.2s 1.8s forwards;
+}
+
+@keyframes reveal-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.reveal-to-left {
+  transform: translateX(100%);
+  animation: reveal-to-left 1s 1s forwards;
+}
+
+@keyframes reveal-to-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.border-left {
+  height: 90%;
+  border-left: 4px solid var(--focus);
+  animation: grow 5s forwards;
+}
+
+@keyframes grow {
+  0% {
+    height: 0;
+  }
+  20%, 90% {
+    height: 90%;
+    opacity: 1;
+  }
+  100% {
+    height: 90%;
+  }
+}
+
+.word{
+    display: block;
+}
+
+
+
+#typed-text {
+    width: max-content;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+    opacity: 0;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
 .social {
     height: 45px;
     display: flex;
     align-items: center;
     gap: 10px;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
     
 }
 
@@ -116,58 +238,42 @@ const items = Array(6).fill(null); // Generamos una lista de 6 elementos vacíos
     background-color: var(--alt);
 }
 
-
-h1{
-    font-family: "Rajdhani", sans-serif;
-    color: #ceb9e9;
-    font-size: clamp(0.1rem, 1.5vw + 1rem,3.5rem);
-    font-weight: 400;
-    line-height: 100%;
-}
-
-h2{
-    font-family: 'Soapstone';
-    font-size: clamp(0.1rem, 5vw + 1rem, 7rem);
-    display: inline-flex;
-    padding: 20px 0;
-    margin: 0;
-}
-
-#typed-text {
-    width: max-content;
-}
-
-.cursor {
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
-
-
-
 </style>
 
-
-
 <script is:inline>
+    // const words = ["Web", "Developer"];
+    // let wordIndex = 0;
+    // let letterIndex = 0;
+    // const speed = 150;
 
-    const text = "Web Developer";
-    let index = 0;
-    const speed = 200; 
+    // function typeEffect() {
+    //     const element = document.getElementById("typed-text");
+        
+    //     if (letterIndex < words[wordIndex].length) {
+    //         element.innerHTML += words[wordIndex].charAt(letterIndex);
+    //         letterIndex++;
+    //         setTimeout(typeEffect, speed);
+    //     } else {
+    //         letterIndex = 0;
+    //         wordIndex++;
+    //         if (wordIndex < words.length) {
+    //             element.innerHTML += "<span class='line-break'><br></span>";
+    //             setTimeout(typeEffect, speed);
+    //         }
+    //     }
+    // }
 
-    function typeEffect() {
-        if (index < text.length) {
-            document.getElementById("typed-text").textContent += text.charAt(index);
-            index++;
-            setTimeout(typeEffect, speed);
-        }
-    }
-
-    window.onload = function() {
-        typeEffect();
-    };
+    // window.onload = function() {
+    //     const title = document.querySelector(".reveal-text");
+        
+    //     title.addEventListener("animationend", function(event) {
+    //         if (event.animationName === "text-revealer") {
+    //             setTimeout(() => {
+    //                 document.querySelector(".cursor").style.opacity = 1;
+    //                 document.querySelector("h2").style.opacity = 1;
+    //                 typeEffect();
+    //             }, 300); // 3000 ms = 3 seconds delay
+    //         }
+    //     });
+    // };
 </script>
