@@ -1,0 +1,121 @@
+---
+import Social from "./social.astro";
+
+
+---
+
+<section id="contact" class="content">
+    <!-- <h3 class="entry">Contacto</h3> -->
+     <div class="container row contact">
+        <div class="col-xxl">
+            <p class="animated-text open">open to work</p>
+        </div>
+        <div class="col-xxl txt">
+                <div class="links">
+                    <div class="email">
+                        <p class="">Si te gustaría que trabajemos juntos</p>
+                        <a href="mailto:nataliagiselle.c@gmail.com" class="animatex-text"><i class="fa-regular fa-paper-plane "></i>Enviame un mensaje</a>
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-location-dot small"></i><p>General San Martín - Buenos Aires - Argentina</p></span>
+                        <span><i class="fa-solid fa-envelope small"></i> <a href="mailto:nataliagiselle.c@gmail.com">nataliagiselle.c@gmail.com</a></span>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/curianatalia/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/NataliaGiselleCuria" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <div class="email">
+                        <p class="">Gracias por visitarme <i class="fa-regular fa-heart "></i></p>
+                    </div>
+                </div>  
+        </div>
+     </div>
+</section>
+
+<style>
+    section#contact {
+        justify-items: center;
+    }
+
+    .contact{
+        padding:0 ;
+        display: flex;
+        gap: 20px;
+    }
+
+    .open{
+        font-family: "Soapstone";
+        font-size: clamp(3.5rem, 6vw + 1rem, 7rem);
+        background-image: var(--deg2);
+    }
+
+    .txt {
+        align-content: center;
+    }
+
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: 100%;
+        min-height: fit-content;
+        justify-content: space-evenly;
+    }
+
+    .links, .links span p{
+        font-family: 'Rajdhani', sans-serif;
+        font-size: clamp(0.1rem, 2.2vw + 1rem, 1.5rem);
+    }
+
+    .links span{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .links span i{
+        width: 25px;
+        min-width: 25px;
+        text-align: center;
+    }
+
+    .small{
+        font-size: large;
+    }
+
+    p{
+        margin: 0;
+    }
+
+    .contact .social{
+        display: flex;
+        gap: 10px;
+
+    }
+
+    .email, .email p{
+        font-family: 'Rajdhani', sans-serif;
+        font-size: clamp(0.1rem, 2.2vw + 1rem, 1.7rem);
+        font-weight: 500;
+        
+    }
+
+    .email a {
+        font-size: clamp(0.1rem, 2.2vw + 1rem, 1.5rem);
+        border: 1px solid var(--alt);
+        background: var(--alt);
+        padding: 0 15px;
+        border-radius: 10px;
+        font-weight: 400;
+    }
+
+  
+
+    .email i{
+        font-size: 20px;
+        margin-right: 10px;
+        font-weight: 100;
+    }
+
+   
+</style>

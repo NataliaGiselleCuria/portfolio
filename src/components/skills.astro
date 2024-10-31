@@ -1,0 +1,47 @@
+---
+import icons from "../../src/data/icons.json";
+---
+
+<div id="skills" class="container content skills">
+    <h3 class="entry">Skills</h3>
+    <ul class="entry">
+        {
+            icons.icons.map((icon) =>
+                icon.name !== "GitHub" ? <li set:html={icon.url} /> : null,
+            )
+        }
+    </ul>
+</div>
+
+<style>
+
+    #skills h3{
+        color: var(--back);
+    }
+
+    #skills {
+        align-content: center;
+    }
+
+    .skills {
+        padding: 0;
+    }
+
+    .skills ul {
+        height: 70%;
+        min-height: fit-content;
+        width: 100%;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        justify-content: center;
+        justify-items: center;
+        padding: 0;
+        border: 1px solid  var(--back);
+        padding: 15px;
+
+    }
+
+  
+    
+</style>

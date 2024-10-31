@@ -2,23 +2,23 @@
   "icons": [
     {
       "name": "HTML",
-      "url": "<i class='fa-brands fa-html5' aria-label='HTML logo'></i>"
+      "url": "<i class='fa-brands fa-html5' title='HTML logo'></i>"
     },
     {
       "name": "CSS",
-      "url": "<i class='fa-brands fa-css3-alt' aria-label='CSS logo'></i>"
+      "url": "<i class='fa-brands fa-css3-alt' title='CSS logo'></i>"
     },
     {
       "name": "JavaScript",
-      "url": "<i class='fa-brands fa-js' aria-label='JavaScript logo'></i>"
+      "url": "<i class='fa-brands fa-js' title='JavaScript logo'></i>"
     },
     {
       "name": "React",
-      "url": "<i class='fa-brands fa-react' aria-label='React logo'></i>"
+      "url": "<i class='fa-brands fa-react' title='React logo'></i>"
     },
     {
       "name": "PHP",
-      "url": "<i class='fa-brands fa-php' aria-label='PHP logo'></i>"
+      "url": "<i class='fa-brands fa-php' title='PHP logo'></i>"
     },
     {
       "name": "MySQL",
@@ -27,19 +27,19 @@
     },
     {
       "name": "Bootstrap",
-      "url": "<i class='fa-brands fa-bootstrap' aria-label='Bootstrap logo'></i>"
+      "url": "<i class='fa-brands fa-bootstrap' title='Bootstrap logo'></i>"
     },
     {
       "name": "GitHub",
-      "url": "<i class='fa-brands fa-github' aria-label='GitHub logo'></i>"
+      "url": "<i class='fa-brands fa-github' title='GitHub logo' rol='img'></i>"
     },
     {
       "name": "GitAlt",
-      "url": "<i class='fa-brands fa-git-alt' aria-label='GitHub logo'></i>"
+      "url": "<i class='fa-brands fa-git-alt' title='GitHub logo'></i>"
     },
     {
       "name": "Figma",
-      "url": "<i class='fa-brands fa-figma' aria-label='Figma logo'></i>"
+      "url": "<i class='fa-brands fa-figma' title='Figma logo'></i>"
     }
   ]
 }

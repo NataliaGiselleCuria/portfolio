@@ -8,11 +8,11 @@ const personalProjects = projects.projects.filter(project => project.type === "p
 
 <section id="projects" class="content">
     <div class="projects-cont custom-border-l">
-        <h3>Proyectos</h3>
+        <h3 class="entry">Proyectos</h3>
         <div class="projects">
                 {
                     personalProjects.map((project, index) => (
-                        <div class="slide proj container row" id={`project-slide-${index + 1}`}>
+                        <div class="slide proj container row entry" id={`project-slide-${index + 1}`}>
                             <div class="project-description col-xxl">
                                 <h5>{project.title}</h5>
                                 <p set:html={project.description}></p>
@@ -28,6 +28,7 @@ const personalProjects = projects.projects.filter(project => project.type === "p
                                     <a href={project.liveDemo} target="_blank">Ver Demo</a>
                                     <a href={project.sourceCode} target="_blank">GitHub</a>
                                     {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
+                                    {project.figma ? <a href={project.figma} target="_blank">Figma</a> : ''}
                                 </span>
                             </div>
                             <div class="mockups col-xxl">

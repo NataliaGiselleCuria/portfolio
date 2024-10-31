@@ -6,11 +6,11 @@ const workProjects = projects.projects.filter(project => project.type === "work"
 ---
 
 <section id="experience" class="content">
-    <h3>Experiencia</h3>
+    <h3 class="entry">Experiencia</h3>
     <div class="work">
        {
         workProjects.map((project, index) => (
-            <div class="slide container row" id={`work-${index+1}`}>
+            <div class="slide container row entry" id={`work-${index+1}`}>
                 <div class="project-description col-xxl">
                     <h6>{project.date}</h6>
                     <h5 class="animated-text">{project.title}</h5>

@@ -6,6 +6,7 @@
     --alt: #ac8bd8;
     --alt2: #ffbba4;
     --deg: linear-gradient(60deg, var(--light), var(--alt), var(--light));
+    --deg2: linear-gradient(60deg, var(--alt), var(--focus), var(--alt));
 }
 
 @font-face {
@@ -120,7 +121,7 @@
 
 
 html{
-    scroll-padding-top: 120px;
+    scroll-padding-top: 100px;
     cursor: none;
 }
 
@@ -163,6 +164,18 @@ p{
     animation: animatedgradient 10s ease infinite;
     animation-delay: 0s;
 }
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+} 
 
 .draw-border {
   transition: color 0.25s 0.08333s;
@@ -236,7 +249,19 @@ h3 {
     flex-direction: row;
     justify-content: center;
     gap: 20px;
-} 
+    
+}
+
+.entry{
+    opacity: 0; /* Elementos comienzan ocultos */
+    transform: scale(0.9);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.entry.appear {
+    opacity: 1;
+    transform: scale(1); /* Elemento en vista */
+}
 
 .projects-cont{
     height: 70%;
@@ -324,7 +349,6 @@ h5 {
 
 .desktop{
     width: 100%;
-    /* box-shadow: 0 0 30px var(--back); */
     position: relative;
 }
 
@@ -337,62 +361,6 @@ h5 {
     border-radius: 10px;
 }
 
-#skills {
-    align-content: center;
-}
-
-.skills {
-    height: 80%;
-    min-height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    --borderWidth: 1px;
-    /* background: var(--back); */
-    position: relative;
-    border-radius: var(--borderWidth);
-    padding: 15px;
-}
-
-/* .skills:after {
-content: '';
-position: absolute;
-top: calc(-1 * var(--borderWidth));
-left: calc(-1 * var(--borderWidth));
-height: calc(100% + var(--borderWidth) * 2);
-width: calc(100% + var(--borderWidth) * 2);
-border-radius: calc(2 * var(--borderWidth));
-z-index: -1;
-background: var(--deg);
-animation: animatedgradient 3s ease alternate infinite;
-background-size: 300% 300%;
-}
-*/
-
-@keyframes animatedgradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-} 
-  
-.skills ul {
-    height: 70%;
-    min-height: fit-content;
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    justify-content: center;
-    justify-items: center;
-    padding: 0;
-}
-
 #skills li {
     width: 100%;
     height: 80%;
@@ -402,34 +370,24 @@ background-size: 300% 300%;
     display: flex;
     justify-content: center;
     align-items: center;
-   
-}
-
-#skills i{
-    background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(60deg, #0b0028, #473c53, #0b0028);
-    background-size: 200% 200%;
-    animation: animatedgradient 10s ease infinite;
-    animation-delay: 0s;
-    
 }
 
 #skills i::before {
-    font-size: clamp(1rem, 6vw + 1rem, 4.5rem)!important; 
+    color: var(--back);
+    font-size: clamp(1rem, 6vw + 1rem, 4.5rem) !important;
     width: 100vw;
     align-content: center;
     text-align: center;
-    animation: skills-in 2s ease-in-out; 
+    animation: skills-in 2s ease-in-out;
 }
 
-#skills svg{
+#skills svg {
     fill: #968c7e;
     height: 100%;
 }
 
 footer{
-    height: 100px;
+    height: 40px;
     background-color: var(--back);
 }
 
@@ -448,11 +406,6 @@ footer{
 
     h2 {
         margin: 0;
-    }
-
-    .skills{
-        margin-top: 30px;
-      
     }
 }
 
@@ -492,7 +445,7 @@ footer{
     }
 
     .thumb {
-        width: calc(100% / 3);
+        width: calc(100% / 4);
         height: 150%;
         top: -20%;
         left: 0;
@@ -501,6 +454,15 @@ footer{
 
     .social{
         margin: 0;
+    }
+
+    #nav{
+        top: 45px!important;
+    }
+
+    #nav .nav{
+        width: 100%;
+        justify-content: space-evenly;
     }
 
 }
@@ -534,19 +496,15 @@ footer{
         padding: 0px!important;  
     }
 
-    .social a  {
-        height: 20px;
-    }
-
     .social a p {
         display: none;
     }
 
     .skills ul{
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr))!important;
     }
 
-    .skills li{
+    #skills.skills li{
         min-height: 46px!important;
     }
 
@@ -598,10 +556,6 @@ footer{
 
     .btn a {
         font-size: clamp(0.5rem, 2vw, 1rem); 
-    }
-
-    #home {
-        padding-top: 60px;
     }
 
     #home .row {
