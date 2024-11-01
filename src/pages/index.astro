@@ -73,7 +73,7 @@ import "../../public/global.css";
 		<CursorLayaut>
 			<div class="pages">
 				<div class="page">
-					<a href="#home">Home</a>					
+					<a href="#home">Home</a>
 					<a href="#experience">Experiencia</a>
 					<a href="#projects">Proyectos</a>
 					<a href="#contact">Contacto</a>
@@ -88,12 +88,14 @@ import "../../public/global.css";
 				<Home />
 				<Experience />
 				<Projects />
-				<Skills></Skills>
-				<Contact></Contact>
+				<Skills />
+				<Contact />
 				<div></div>
 			</main>
 			<footer>
-				<p class="animated-text">Hecho con <i class="fa-solid fa-heart"></i> | Natalia curia</p>
+				<p class="animated-text">
+					Hecho con <i class="fa-solid fa-heart"></i> | Natalia curia
+				</p>
 			</footer>
 		</CursorLayaut>
 	</body>
@@ -195,30 +197,33 @@ import "../../public/global.css";
 
 	//________________________________________________
 
+	//animaciones de las secciones.
+
 	document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelectorAll(".entry");
-    let lastScrollPosition = 0;
+		const slides = document.querySelectorAll(".entry");
+		let lastScrollPosition = 0;
 
-    const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.6 // Activa cuando el 30% del elemento está visible
-    };
+		const observerOptions = {
+			root: null,
+			rootMargin: "0px",
+			threshold: 0.6, // Activa cuando el 30% del elemento está visible
+		};
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            const currentScrollPosition = window.scrollY;
-            const isScrollingDown = currentScrollPosition > lastScrollPosition;
+		const observer = new IntersectionObserver((entries, observer) => {
+			entries.forEach((entry) => {
+				const currentScrollPosition = window.scrollY;
+				const isScrollingDown =
+					currentScrollPosition > lastScrollPosition;
 
-            if (entry.isIntersecting && isScrollingDown) {
-                entry.target.classList.add("appear");
-                observer.unobserve(entry.target); // Deja de observar después de aparecer
-            }
+				if (entry.isIntersecting && isScrollingDown) {
+					entry.target.classList.add("appear");
+					observer.unobserve(entry.target); // Deja de observar después de aparecer
+				}
 
-            lastScrollPosition = currentScrollPosition;
-        });
-    }, observerOptions);
+				lastScrollPosition = currentScrollPosition;
+			});
+		}, observerOptions);
 
-    slides.forEach((slide) => observer.observe(slide));
-});
+		slides.forEach((slide) => observer.observe(slide));
+	});
 </script>

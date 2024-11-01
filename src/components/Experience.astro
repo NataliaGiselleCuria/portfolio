@@ -3,6 +3,8 @@ import icons from '../../src/data/icons.json';
 import projects from '../../src/data/projects.json';
 
 const workProjects = projects.projects.filter(project => project.type === "work");
+
+
 ---
 
 <section id="experience" class="content">
@@ -32,24 +34,106 @@ const workProjects = projects.projects.filter(project => project.type === "work"
                 <div class="mockups col-xxl">
                     <div class="desktop">
                         {project.imgArray ? (
-                        // Si existe imgArray, renderiza todas las imágenes del array
-                        project.imgArray.map((imgSrc, index) => (
-                            <img src={imgSrc} alt={`Vista ${index + 1} de ${project.title}`} />
-                        ))
+                            project.imgArray.map((imgSrc, imgIndex) => (
+                                <img
+                                    src={imgSrc}
+                                    alt={`Vista ${imgIndex + 1} de ${project.title}`}
+                                    class="project-image"
+                                    data-images={JSON.stringify(project.imgArray)}
+                                    data-index={imgIndex} 
+                                />
+                            ))
                         ) : project.imgDesktop ? (
-                        // Si no existe imgArray pero sí imgDesktop, renderiza imgDesktop
-                        <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} />
-                        ) : (
-                        // Si no existe ni imgArray ni imgDesktop, no renderiza nada
-                        null
-                        )}
+                            <img
+                                src={project.imgDesktop}
+                                alt={`Vista de escritorio de ${project.title}`}
+                                class="project-image"
+                                data-images={JSON.stringify([project.imgDesktop])}
+                                data-index="0"
+                            />
+                        ) : null}
                     </div>
                 </div>
             </div>
         ))
         }
     </div>
+    <div class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <button class="prev-button">&#10094;</button>
+            <img src="" alt="Imagen de proyecto" class="modal-image" />
+            <button class="next-button">&#10095;</button>
+        </div>
+    </div>
 </section>
+
+<script>
+    // modalHandler.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.querySelector(".modal");
+    const modalImage = document.querySelector(".modal-image");
+    const closeButton = document.querySelector(".close-button");
+    const nextButton = document.querySelector(".next-button");
+    const prevButton = document.querySelector(".prev-button");
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // Abrir el modal con la imagen seleccionada
+    document.querySelectorAll(".project-image").forEach(img => {
+        img.addEventListener("click", () => {
+            const images = img.getAttribute("data-images");
+            const index = img.getAttribute("data-index");
+
+            currentImages = JSON.parse(images ?? "[]"); 
+            currentIndex = parseInt(index ?? "0", 10);  
+            openModal();
+        });
+    });
+
+    // Función para abrir el modal y mostrar la imagen actual
+    function openModal() {
+        if (modal) {
+            modal.classList.remove("hidden");
+            modalImage.src = currentImages[currentIndex] ?? ""; 
+        }
+    }
+    
+
+    // Función para cerrar el modal
+    function closeModal() {
+        if (modal) {
+            modal.classList.add("hidden");
+        }
+    }
+
+    // Función para mostrar la imagen siguiente
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        modalImage.src = currentImages[currentIndex];
+    }
+
+    // Función para mostrar la imagen anterior
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        modalImage.src = currentImages[currentIndex];
+    }
+
+    // Eventos de botones
+    if(closeButton){closeButton.addEventListener("click", closeModal);}
+    if(nextButton){nextButton.addEventListener("click", nextImage);}
+    if(prevButton){prevButton.addEventListener("click", prevImage);}
+    
+    
+    
+
+    // Cerrar modal al hacer click fuera de la imagen
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+});
+</script>
 
 <style>
 
@@ -87,6 +171,55 @@ const workProjects = projects.projects.filter(project => project.type === "work"
     .links a::after {
         background-color: #c7bbbb;
     }
+
+    .modal.hidden {
+    display: none;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+.modal-image {
+    width: 100%;
+    height: auto;
+}
+.close-button,
+.prev-button,
+.next-button {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+.close-button {
+    top: 1rem;
+    right: 1rem;
+}
+.prev-button {
+    left: 0.5rem;
+}
+.next-button {
+    right: 0.5rem;
+}
 
 </style>
 
