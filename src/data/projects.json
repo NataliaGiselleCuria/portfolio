@@ -10,8 +10,9 @@
       "imgDesktop": "/assets/projects/darrona-d.png",
       "imgArray":[
         "/assets/projects/darrona-d.png",
-        "/assets/projects/darrona-d.png",
-        "/assets/projects/darrona-d.png"
+        "/assets/projects/darrona-d2.png",
+        "/assets/projects/darrona-d3.png",
+        "/assets/projects/darrona-d4.png"
       ],
       "liveDemo": "https://darrona-pedidos.free.nf",
       "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",

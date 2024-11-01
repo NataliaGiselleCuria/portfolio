@@ -488,7 +488,7 @@ footer p {
 
 @media (max-width: 576px) {
     body {
-        background-position: bottom;
+        background-position: top;
     }
 
     p {
@@ -497,10 +497,6 @@ footer p {
 
     #home {
         padding: 0;
-    }
-
-    #about-me {
-        height: 30vh;
     }
 
     .presentation {
