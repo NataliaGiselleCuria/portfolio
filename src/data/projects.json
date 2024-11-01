@@ -64,6 +64,13 @@
       "imgDesktop": "/assets/projects/cristales-d.png",
       "liveDemo": "https://cristalescuria.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/CristalesCuria"
+    },
+    {
+      "type": "project",
+      "title": "Portfolio",
+      "description":"",
+      "technologies": ["HTML", "CSS","Astro"],
+      "sourceCode": "https://github.com/NataliaGiselleCuria/portfolio"
     }
   ]
 }

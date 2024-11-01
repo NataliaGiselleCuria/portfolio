@@ -1,69 +1,85 @@
 ---
-import icons from '../../src/data/icons.json';
-import projects from '../../src/data/projects.json';
+import icons from "../../src/data/icons.json";
+import projects from "../../src/data/projects.json";
 
-const workProjects = projects.projects.filter(project => project.type === "work");
-
-
+const workProjects = projects.projects.filter(
+    (project) => project.type === "work",
+);
 ---
 
 <section id="experience" class="content">
     <h3 class="entry">Experiencia</h3>
     <div class="work">
-       {
-        workProjects.map((project, index) => (
-            <div class="slide container row entry" id={`work-${index+1}`}>
-                <div class="project-description col-xxl">
-                    <h6>{project.date}</h6>
-                    <h5 class="animated-text">{project.title}</h5>
-                    <p set:html={project.description}></p>
-                    <div class="technologies">
-                        {
-                            project.technologies.map(tech => {
-                                const icon = icons.icons.find(icon => icon.name === tech);
-                                return <span class="tech">{icon ? icon.name : tech}</span>; 
-                            })
-                        }
+        {
+            workProjects.map((project, index) => (
+                <div class="slide container row entry" id={`work-${index + 1}`}>
+                    <div class="project-description col-xxl">
+                        <h6>{project.date}</h6>
+                        <h5 class="animated-text">{project.title}</h5>
+                        <p set:html={project.description} />
+                        <div class="technologies">
+                            {project.technologies.map((tech) => {
+                                const icon = icons.icons.find(
+                                    (icon) => icon.name === tech,
+                                );
+                                return (
+                                    <span class="tech">
+                                        {icon ? icon.name : tech}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                        <span class="links">
+                            <a href={project.liveDemo} target="_blank">
+                                Ver Demo
+                            </a>
+                            <a href={project.sourceCode} target="_blank">
+                                GitHub
+                            </a>
+                            {project.sourceCode2 ? (
+                                <a href={project.sourceCode2} target="_blank">
+                                    Backend
+                                </a>
+                            ) : (
+                                ""
+                            )}
+                        </span>
                     </div>
-                    <span class="links">
-                        <a href={project.liveDemo} target="_blank">Ver Demo</a>
-                        <a href={project.sourceCode} target="_blank">GitHub</a>
-                        {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
-                    </span>
-                </div>
-                <div class="mockups col-xxl">
-                    <div class="desktop">
-                        {project.imgArray ? (
-                            project.imgArray.map((imgSrc, imgIndex) => (
+                    <div class="mockups col-xxl">
+                        <div class="desktop">
+                            {project.imgArray ? (
+                                project.imgArray.map((imgSrc, imgIndex) => (
+                                    <img
+                                        src={imgSrc}
+                                        alt={`Vista ${imgIndex + 1} de ${project.title}`}
+                                        class="project-image"
+                                        data-images={JSON.stringify(
+                                            project.imgArray,
+                                        )}
+                                        data-index={imgIndex}
+                                    />
+                                ))
+                            ) : project.imgDesktop ? (
                                 <img
-                                    src={imgSrc}
-                                    alt={`Vista ${imgIndex + 1} de ${project.title}`}
+                                    src={project.imgDesktop}
+                                    alt={`Vista de escritorio de ${project.title}`}
                                     class="project-image"
-                                    data-images={JSON.stringify(project.imgArray)}
-                                    data-index={imgIndex} 
+                                    data-images={JSON.stringify([
+                                        project.imgDesktop,
+                                    ])}
+                                    data-index="0"
                                 />
-                            ))
-                        ) : project.imgDesktop ? (
-                            <img
-                                src={project.imgDesktop}
-                                alt={`Vista de escritorio de ${project.title}`}
-                                class="project-image"
-                                data-images={JSON.stringify([project.imgDesktop])}
-                                data-index="0"
-                            />
-                        ) : null}
+                            ) : null}
+                        </div>
                     </div>
                 </div>
-            </div>
-        ))
+            ))
         }
     </div>
     <div class="modal hidden">
         <div class="modal-content">
             <button class="close-button">&times;</button>
-            <button class="prev-button">&#10094;</button>
             <img src="" alt="Imagen de proyecto" class="modal-image" />
-            <button class="next-button">&#10095;</button>
         </div>
     </div>
 </section>
@@ -71,80 +87,61 @@ const workProjects = projects.projects.filter(project => project.type === "work"
 <script>
     // modalHandler.js
 
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.querySelector(".modal");
-    const modalImage = document.querySelector(".modal-image");
-    const closeButton = document.querySelector(".close-button");
-    const nextButton = document.querySelector(".next-button");
-    const prevButton = document.querySelector(".prev-button");
-    let currentImages = [];
-    let currentIndex = 0;
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.querySelector(".modal");
+        const modalImage = document.querySelector(".modal-image");
+        const closeButton = document.querySelector(".close-button");
+        let currentImages = [];
+        let currentIndex = 0;
 
-    // Abrir el modal con la imagen seleccionada
-    document.querySelectorAll(".project-image").forEach(img => {
-        img.addEventListener("click", () => {
-            const images = img.getAttribute("data-images");
-            const index = img.getAttribute("data-index");
+        // Abrir el modal con la imagen seleccionada
+        document.querySelectorAll(".project-image").forEach((img) => {
+            img.addEventListener("click", () => {
+                const images = img.getAttribute("data-images");
+                const index = img.getAttribute("data-index");
 
-            currentImages = JSON.parse(images ?? "[]"); 
-            currentIndex = parseInt(index ?? "0", 10);  
-            openModal();
+                currentImages = JSON.parse(images ?? "[]");
+                currentIndex = parseInt(index ?? "0", 10);
+                openModal();
+            });
+        });
+
+        // Función para abrir el modal y mostrar la imagen actual
+        function openModal() {
+            if (modal) {
+                modal.classList.remove("hidden");
+                modalImage.src = currentImages[currentIndex] ?? "";
+            }
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            if (modal) {
+                modal.classList.add("hidden");
+            }
+        }
+
+        // Eventos de botones
+        if (closeButton) {
+            closeButton.addEventListener("click", closeModal);
+        }
+
+        // Cerrar modal al hacer click fuera de la imagen
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
         });
     });
-
-    // Función para abrir el modal y mostrar la imagen actual
-    function openModal() {
-        if (modal) {
-            modal.classList.remove("hidden");
-            modalImage.src = currentImages[currentIndex] ?? ""; 
-        }
-    }
-    
-
-    // Función para cerrar el modal
-    function closeModal() {
-        if (modal) {
-            modal.classList.add("hidden");
-        }
-    }
-
-    // Función para mostrar la imagen siguiente
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % currentImages.length;
-        modalImage.src = currentImages[currentIndex];
-    }
-
-    // Función para mostrar la imagen anterior
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-        modalImage.src = currentImages[currentIndex];
-    }
-
-    // Eventos de botones
-    if(closeButton){closeButton.addEventListener("click", closeModal);}
-    if(nextButton){nextButton.addEventListener("click", nextImage);}
-    if(prevButton){prevButton.addEventListener("click", prevImage);}
-    
-    
-    
-
-    // Cerrar modal al hacer click fuera de la imagen
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
-    });
-});
 </script>
 
 <style>
+    h6 {
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: normal;
+    }
 
-   h6{
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: normal;
-   }
-  
-    .slide{
+    .slide {
         flex-direction: column;
         padding: 5% 0;
         padding: 20px;
@@ -152,20 +149,39 @@ document.addEventListener("DOMContentLoaded", function () {
         border: 1px solid var(--alt);
     }
 
-    .mockups{
+    .mockups {
         overflow: hidden;
     }
 
     .desktop {
         display: flex;
-        justify-content: center;
         gap: 10px;
-        overflow: scroll;
+        padding: 10px 0;
+        overflow-x: scroll;
     }
 
     .desktop img {
-        width: 30%;
+        width: 70%;
         object-fit: cover;
+    }
+
+    .desktop::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    /* Track */
+    .desktop::-webkit-scrollbar-track {
+        background: var(--back);
+    }
+
+    /* Handle */
+    .desktop::-webkit-scrollbar-thumb {
+        background: var(--alt);
+    }
+
+    /* Handle on hover */
+    .desktop::-webkit-scrollbar-thumb:hover {
+        background: var(--focus);
     }
 
     .links a::after {
@@ -173,54 +189,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     .modal.hidden {
-    display: none;
-}
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-.modal-content {
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    text-align: center;
-}
-.modal-image {
-    width: 100%;
-    height: auto;
-}
-.close-button,
-.prev-button,
-.next-button {
-    position: absolute;
-    top: 50%;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    transform: translateY(-50%);
-    z-index: 1001;
-}
-.close-button {
-    top: 1rem;
-    right: 1rem;
-}
-.prev-button {
-    left: 0.5rem;
-}
-.next-button {
-    right: 0.5rem;
-}
+        display: none;
+    }
 
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    .modal-content {
+        position: relative;
+        text-align: center;
+        width: 70%;
+        height: fit-content;
+    }
+
+    .modal-image {
+        width: auto;
+        height: 100%;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 50%;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    .close-button {
+        top: 1rem;
+        right: 1rem;
+    }
 </style>
-
-

@@ -11,8 +11,8 @@ const personalProjects = projects.projects.filter(project => project.type === "p
         <h3 class="entry">Proyectos</h3>
         <div class="projects">
                 {
-                    personalProjects.map((project, index) => (
-                        <div class="slide proj container row entry" id={`project-slide-${index + 1}`}>
+                    personalProjects.map((project) => (
+                        <div class="slide proj container row entry" id={project.title}>
                             <div class="project-description col-xxl">
                                 <h5>{project.title}</h5>
                                 <p set:html={project.description}></p>
@@ -25,7 +25,7 @@ const personalProjects = projects.projects.filter(project => project.type === "p
                                     }
                                 </div>
                                 <span class="links">
-                                    <a href={project.liveDemo} target="_blank">Ver Demo</a>
+                                    {project.liveDemo ? <a href={project.liveDemo} target="_blank">Ver Demo</a> : ''}
                                     <a href={project.sourceCode} target="_blank">GitHub</a>
                                     {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
                                     {project.figma ? <a href={project.figma} target="_blank">Figma</a> : ''}
@@ -33,7 +33,7 @@ const personalProjects = projects.projects.filter(project => project.type === "p
                             </div>
                             <div class="mockups col-xxl">
                                 <div class="desktop">
-                                    <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} />
+                                    {project.imgDesktop ? <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} /> :''}
                                 </div>
                             </div>
                         </div>
@@ -63,6 +63,21 @@ const personalProjects = projects.projects.filter(project => project.type === "p
 
     .links a::after {
         background-color: var(--focus);
+    }
+
+    #Portfolio h5, #Portfolio .links{
+        margin: 0;
+    }
+
+    #Portfolio .project-description {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        align-items: center;
+        gap: 10%;
+    }
+
+    #Portfolio .mockups, #Portfolio p {
+        display: none;
     }
 
     
