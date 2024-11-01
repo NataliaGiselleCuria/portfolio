@@ -37,7 +37,7 @@ import "../../public/global.css";
 		/>
 		<meta property="og:image" content="ruta/a/imagen.jpg" />
 		<!-- Imagen que se mostrará en las redes -->
-		<meta property="og:url" content="https://tu-portfolio.com" />
+		<meta property="og:url" content="https://nataliacuria-dev.netlify.app/" />
 		<meta property="og:type" content="website" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -206,7 +206,7 @@ import "../../public/global.css";
 		const observerOptions = {
 			root: null,
 			rootMargin: "0px",
-			threshold: 0.6, // Activa cuando el 30% del elemento está visible
+			threshold: 0.6, // Activa cuando el 60% del elemento está visible
 		};
 
 		const observer = new IntersectionObserver((entries, observer) => {
@@ -217,7 +217,7 @@ import "../../public/global.css";
 
 				if (entry.isIntersecting && isScrollingDown) {
 					entry.target.classList.add("appear");
-					observer.unobserve(entry.target); // Deja de observar después de aparecer
+					observer.unobserve(entry.target);
 				}
 
 				lastScrollPosition = currentScrollPosition;
