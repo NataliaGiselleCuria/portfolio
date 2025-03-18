@@ -32,8 +32,8 @@
       "imgDesktop": "",
       "imgArray": [],
       "videoArray": [
-        "../../public/assets/projects/luzInterior-clientes.mp4",
-        "../../public/assets/projects/luzInterior-desarrollador.mp4"
+        "/assets/projects/luzInterior-clientes.mp4",
+        "/assets/projects/luzInterior-desarrollador.mp4"
       ],
       "liveDemo": "https://luz-interior.free.nf/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/LuzInterior-React",
@@ -69,7 +69,7 @@
       "imgDesktop": "",
       "imgArray": [],
       "videoArray": [
-        "../../public/assets/projects/darrona.mp4"
+        "/assets/projects/darrona.mp4"
       ],
       "liveDemo": "https://darrona.com.ar",
       "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",
