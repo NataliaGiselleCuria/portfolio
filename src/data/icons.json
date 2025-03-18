@@ -17,6 +17,10 @@
       "url": "<i class='fa-brands fa-react' title='React logo'></i>"
     },
     {
+      "name": "Typescript",
+      "url": "<i class='fi fi-brands-typescript'></i>"
+    },
+    {
       "name": "PHP",
       "url": "<i class='fa-brands fa-php' title='PHP logo'></i>"
     },

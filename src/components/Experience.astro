@@ -20,7 +20,7 @@ const workProjects = projects.projects.filter(
                     <p class="collapsed-text" set:html={project.description.join("<br>")}></p>
                     {project.description.length > 2 && (
                         <button class="toggle-btn">
-                            Ver más
+                            Seguir leyendo
                         </button>
                     )}
                 </div>
@@ -169,10 +169,14 @@ const workProjects = projects.projects.filter(
         });
     });
 
+
     // Descripción desplegable
     document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.querySelector(".toggle-btn");
-        modal?.addEventListener("click", toggleDescription);
+        const readMoreButtons = document.querySelectorAll(".toggle-btn");
+        readMoreButtons.forEach(button => {
+            button?.addEventListener("click", toggleDescription);
+        });
+       
     })
 
     function toggleDescription(event) {
@@ -182,7 +186,7 @@ const workProjects = projects.projects.filter(
         description.classList.toggle("expanded");
         button.textContent = description.classList.contains("expanded")
             ? "Ver menos"
-            : "Ver más";
+            : "Seguir leyendo";
     }
     
 </script>
@@ -245,9 +249,7 @@ const workProjects = projects.projects.filter(
         background: var(--focus);
     }
 
-    .links a::after {
-        background-color: #c7bbbb;
-    }
+    
 
     .modal.hidden {
         display: none;
@@ -298,25 +300,32 @@ const workProjects = projects.projects.filter(
 
     /* Descripción desplegable */
     .collapsed-text {
-        max-height: 3em; /* Ajusta para que solo se vean 2-3 líneas */
+        max-height: 3em; /* Ajusta según la cantidad de líneas visibles */
         overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
+        position: relative;
+        
+        /* Efecto de desvanecimiento */
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+        transition: max-height 0.3s ease-in-out, mask-image 0.3s ease-in-out;
     }
 
+    /* Cuando se expande, quitamos el desvanecimiento */
     .collapsed-text.expanded {
-        max-height: 1000px; /* Se expande completamente */
+        max-height: 1000px; /* Lo suficiente para mostrar todo el texto */
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 
     .toggle-btn {
-        background: none;
-        border: none;
-        color: blue;
         cursor: pointer;
-        font-size: 1rem;
-        margin-top: 5px;
+        background: none;
+        margin-bottom: 30px;
+        color: var(--alt);
+        border:none;
     }
 
     .toggle-btn:hover {
-        text-decoration: underline;
+        color: var(--alt);
     }
 </style>
