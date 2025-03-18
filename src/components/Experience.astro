@@ -16,7 +16,14 @@ const workProjects = projects.projects.filter(
                     <div class="project-description col-xxl">
                         <h6>{project.date}</h6>
                         <h5 class="animated-text">{project.title}</h5>
-                        <p set:html={project.description} />
+                        <div class="description">
+                    <p class="collapsed-text" set:html={project.description.join("<br>")}></p>
+                    {project.description.length > 2 && (
+                        <button class="toggle-btn">
+                            Ver más
+                        </button>
+                    )}
+                </div>
                         <div class="technologies">
                             {project.technologies.map((tech) => {
                                 const icon = icons.icons.find(
@@ -30,14 +37,26 @@ const workProjects = projects.projects.filter(
                             })}
                         </div>
                         <span class="links">
-                            <a href={project.liveDemo} target="_blank">
+                            <a
+                                href={project.liveDemo}
+                                target="_blank"
+                                aria-label={`Página de ${project.title}`}
+                            >
                                 Ver Demo
                             </a>
-                            <a href={project.sourceCode} target="_blank">
+                            <a
+                                href={project.sourceCode}
+                                target="_blank"
+                                aria-label={`Código de ${project.title}`}
+                            >
                                 GitHub
                             </a>
                             {project.sourceCode2 ? (
-                                <a href={project.sourceCode2} target="_blank">
+                                <a
+                                    href={project.sourceCode2}
+                                    target="_blank"
+                                    aria-label={`Código de ${project.title}`}
+                                >
                                     Backend
                                 </a>
                             ) : (
@@ -57,6 +76,7 @@ const workProjects = projects.projects.filter(
                                             project.imgArray,
                                         )}
                                         data-index={imgIndex}
+                                        loading="lazy"
                                     />
                                 ))
                             ) : project.imgDesktop ? (
@@ -68,8 +88,28 @@ const workProjects = projects.projects.filter(
                                         project.imgDesktop,
                                     ])}
                                     data-index="0"
+                                    loading="lazy"
                                 />
                             ) : null}
+                            {project.videoArray
+                                ? project.videoArray.map(
+                                      (videoSrc, videoIndex) => (
+                                          <video
+                                              class="project-video"
+                                              controls
+                                              data-videos={JSON.stringify(
+                                                  project.videoArray,
+                                              )}
+                                              data-index={videoIndex}
+                                          >
+                                              <source
+                                                  src={videoSrc}
+                                                  type="video/mp4"
+                                              />
+                                          </video>
+                                      ),
+                                  )
+                                : null}
                         </div>
                     </div>
                 </div>
@@ -116,21 +156,35 @@ const workProjects = projects.projects.filter(
 
         // Función para cerrar el modal
         function closeModal() {
-            if (modal) {
-                modal.classList.add("hidden");
-            }
+                modal?.classList.add("hidden");
         }
 
         // Eventos de botones
-        if (closeButton) {
-            closeButton.addEventListener("click", closeModal);
-        }
+        closeButton?.addEventListener("click", closeModal);
+        
 
         // Cerrar modal al hacer click fuera de la imagen
-        modal.addEventListener("click", (e) => {
+        modal?.addEventListener("click", (e) => {
             if (e.target === modal) closeModal();
         });
     });
+
+    // Descripción desplegable
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.querySelector(".toggle-btn");
+        modal?.addEventListener("click", toggleDescription);
+    })
+
+    function toggleDescription(event) {
+        const button = event.target;
+        const description = button.previousElementSibling;
+
+        description.classList.toggle("expanded");
+        button.textContent = description.classList.contains("expanded")
+            ? "Ver menos"
+            : "Ver más";
+    }
+    
 </script>
 
 <style>
@@ -147,6 +201,11 @@ const workProjects = projects.projects.filter(
         padding: 20px;
         background: #17072385;
         border: 1px solid var(--alt);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .slide:hover {
+        background: #160735;
     }
 
     .mockups {
@@ -160,8 +219,10 @@ const workProjects = projects.projects.filter(
         overflow-x: scroll;
     }
 
-    .desktop img {
+    .desktop img,
+    .desktop video {
         width: 70%;
+        height: auto;
         object-fit: cover;
     }
 
@@ -233,5 +294,29 @@ const workProjects = projects.projects.filter(
     .close-button {
         top: 1rem;
         right: 1rem;
+    }
+
+    /* Descripción desplegable */
+    .collapsed-text {
+        max-height: 3em; /* Ajusta para que solo se vean 2-3 líneas */
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    .collapsed-text.expanded {
+        max-height: 1000px; /* Se expande completamente */
+    }
+
+    .toggle-btn {
+        background: none;
+        border: none;
+        color: blue;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .toggle-btn:hover {
+        text-decoration: underline;
     }
 </style>

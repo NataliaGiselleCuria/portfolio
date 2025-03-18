@@ -15,7 +15,7 @@ const personalProjects = projects.projects.filter(project => project.type === "p
                         <div class="slide proj container row entry" id={project.title}>
                             <div class="project-description col-xxl">
                                 <h5>{project.title}</h5>
-                                <p set:html={project.description}></p>
+                                <p set:html={project.description.join('<br>')}></p>
                                 <div class="technologies">
                                     {
                                         project.technologies.map(tech => {
@@ -25,15 +25,15 @@ const personalProjects = projects.projects.filter(project => project.type === "p
                                     }
                                 </div>
                                 <span class="links">
-                                    {project.liveDemo ? <a href={project.liveDemo} target="_blank">Ver Demo</a> : ''}
-                                    <a href={project.sourceCode} target="_blank">GitHub</a>
-                                    {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank">Backend</a> : ''}
-                                    {project.figma ? <a href={project.figma} target="_blank">Figma</a> : ''}
+                                    {project.liveDemo ? <a href={project.liveDemo} target="_blank" aria-label={`Página de ${project.title}`}>Ver Demo</a> : ''}
+                                    <a href={project.sourceCode} target="_blank" aria-label={`Código de ${project.title}`}>GitHub</a>
+                                    {project.sourceCode2 ? <a href={project.sourceCode2} target="_blank" aria-label={`Código de ${project.title}`}>Backend</a> : ''}
+                                    {project.figma ? <a href={project.figma} target="_blank" aria-label={`Figma de ${project.title}`}>Figma</a> : ''}
                                 </span>
                             </div>
                             <div class="mockups col-xxl">
                                 <div class="desktop">
-                                    {project.imgDesktop ? <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} /> :''}
+                                    {project.imgDesktop ? <img src={project.imgDesktop} alt={`Vista de escritorio de ${project.title}`} loading="lazy" /> :''}
                                 </div>
                             </div>
                         </div>

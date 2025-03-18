@@ -15,7 +15,7 @@
     font-weight: 200;
 }
 
-@font-face {
+/* @font-face {
     font-family: 'Montserrat';
     src: url(/fonts/Montserrat-Light.ttf) format('truetype');
     font-weight: 200;
@@ -37,7 +37,7 @@
     font-family: 'Montserrat';
     src: url(/fonts/Montserrat-SemiBold.ttf) format('truetype');
     font-weight: 500;
-}
+} */
 
 /* width */
 ::-webkit-scrollbar {
@@ -118,7 +118,7 @@ html {
 }
 
 body {
-    background-image: url(/public/assets/back41.png);
+    background-image: url(/public/assets/back41.webp);
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     color: white;
@@ -145,7 +145,6 @@ a {
 p {
     font-family: "Roboto Condensed", sans-serif;
     font-size: 19px;
-    line-height: normal;
 }
 
 .animated-text {
@@ -352,10 +351,8 @@ h5 {
 
 .desktop img {
     width: 100%;
+    height: auto;
     object-fit: cover;
-}
-
-.desktop img {
     border-radius: 10px;
 }
 

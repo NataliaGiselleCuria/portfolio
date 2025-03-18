@@ -3,46 +3,125 @@
     {
       "type": "work",
       "date": "Freelance - 2024",
+      "cliente": "Luz Interior | Fábrica de luminaria de diseño",
+      "title": "Luz Interior Mayoristas",
+      "description": [
+        "Luz Interior es una plataforma mayorista de <strong>gestión de pedidos con un panel administrativo intuitivo.</strong>.",
+        "Los clientes se registran proporcionando su CUIT y, tras la aprobación de un administrador, pueden navegar por el catálogo y realizar pedidos sin necesidad de una pasarela de pagos, mientras que en la sección 'Mis pedidos' pueden seguir el estado de sus compras. Cada actualización de estado genera automáticamente una notificación por email, manteniendo una comunicación constante.",
+        "Desde el panel de administración los administradores pueden aprobar cuentas, modificar productos, cambiar el estado de los pedidos con un solo clic y automatizar la comunicación con los clientes.",
+        "",
+        "<strong>Características principales:</strong>",
+        "<strong>● Registro y autenticación segura</strong>, con aprobación manual de cuentas y cifrado de contraseñas.",
+        "<strong>● Gestión de sesiones con JWT</strong>, asegurando control sobre la expiración y protección de la información.",
+        "<strong>● Notificaciones automatizadas</strong> mediante PHPMailer, incluyendo confirmaciones de cuenta, recuperación de contraseña y actualizaciones de pedidos.",
+        "<strong>● Seguimiento de pedidos</strong>, permitiendo a los clientes consultar el estado de sus órdenes en todo momento.",
+        "<strong>● Administración intuitiva</strong>, con un panel que facilita la gestión de usuarios, productos, envíos y contenido informativo.",
+        "<strong>● Edición avanzada de contenido</strong> con TinyMCE para edición de texto enriquecido y DndKit para organización visual de imágenes con drag & drop.",
+        "<strong>● Optimización de carga</strong> con Lazy Loading, mejorando la velocidad y eficiencia de la plataforma.",
+        "",
+        "<strong>Autenticación y seguridad:</strong> JWT, PHPMailer",
+        "<strong>Librerías adicionales:</strong> TinyMCE, DndKit."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "React",
+        "PHP",
+        "MySQL"
+      ],
+      "imgDesktop": "",
+      "imgArray": [],
+      "videoArray": [
+        "../../public/assets/projects/luzInterior-clientes.mp4",
+        "../../public/assets/projects/luzInterior-desarrollador.mp4"
+      ],
+      "liveDemo": "https://luz-interior.free.nf/",
+      "sourceCode": "https://github.com/NataliaGiselleCuria/LuzInterior-React",
+      "sourceCode2": "https://github.com/NataliaGiselleCuria/LuzInterior-api"
+    },
+    {
+      "type": "work",
+      "date": "Freelance - 2024",
       "cliente": "Dietética Darrona",
       "title": "Darrona Pedidos Online",
-      "description": "Diseño e interfaz para 'Dietética Darrona' que permite a los clientes generar pedidos.<br>Incluye envío de e-mail de confirmacion al cliente y de ingreso de pedido nuevo a Darrona.<br>La app cuenta con un panel de administrador donde el propietario puede visualizar y gestionar los pedidos recibidos, actualizar la lista de productos mediante un archivo CSV y modificar información relevante, como zonas de envío, límites de compra y datos de la empresa.",
-      "technologies": ["HTML", "CSS", "React", "PHP", "MySQL"],
-      "imgDesktop": "/assets/projects/darrona-d.png",
-      "imgArray":[
-        "/assets/projects/darrona-d.png",
-        "/assets/projects/darrona-d2.png",
-        "/assets/projects/darrona-d3.png",
-        "/assets/projects/darrona-d4.png"
+      "description": [
+        "Darrona es una solución web que <strong>moderniza el proceso de pedidos</strong> de una distribuidora de productos dietéticos, reemplazando las antiguas hojas de cálculo por un sistema más ágil y eficiente.",
+        "",
+        "<strong>Características principales:</strong>",
+        "<strong>● Interfaz intuitiva</strong>, inspirada en Excel facilitando la adaptación de los usuarios acostumbrados al método anterior y permitiendo una transición suave hacia el sistema digital.",
+        "<strong>● Visualización de precios según el tipo de cliente</strong> (minorista, mayorista o distribuidor).",
+        "<strong>● Búsqueda y filtrado de productos</strong> para agilizar la selección.",
+        "<strong>● Notificaciones por correo electrónico</strong> tras realizar un pedido. El cliente recibe una confirmación detallada por correo electrónico. Simultáneamente, el equipo de Darrona recibe una notificación similar junto con un archivo Excel adjunto que contiene los detalles del pedido, facilitando su integración en los sistemas internos de gestión.",
+        "<strong>● Gestión administrativa</strong>, con carga masiva de productos a travez de un archivo SVC y ajustes dinámicos de condiciones de compra.",
+        "",
+        "<strong>Beneficios obtenidos:</strong>",
+        "La implementación de Darrona ha permitido a la empresa modernizar su proceso de recepción de pedidos, eliminando la dependencia de hojas de cálculo y reduciendo errores asociados al método manual. Además, la plataforma ha mejorado la experiencia del cliente al ofrecer una interfaz amigable y funcionalidades que facilitan la realización de pedidos, contribuyendo así a la eficiencia operativa y a la satisfacción del cliente.",
+        "",
+        "<strong>Autenticación y seguridad:</strong> JWT, PHPMailer"
       ],
-      "liveDemo": "https://darrona-pedidos.free.nf",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "React",
+        "PHP",
+        "MySQL"
+      ],
+      "imgDesktop": "",
+      "imgArray": [],
+      "videoArray": [
+        "../../public/assets/projects/darrona.mp4"
+      ],
+      "liveDemo": "https://darrona.com.ar",
       "sourceCode": "https://github.com/NataliaGiselleCuria/DistribuidoraDarrona-React",
       "sourceCode2": "https://github.com/NataliaGiselleCuria/darrona-api"
     },
     {
       "type": "project",
       "title": "Adivina la Palabra",
-      "description": "Juego de adivinanza al estilo 'Wordle' con temática de programacíon.<br>El jugador tiene seis intentos para adivinar la palabra oculta. Luego de cada intento el juego proporciona pistas indicando qué letras están en la palabra y si están o no en la posición correcta.",
-      "technologies": ["HTML", "CSS", "React"],
-      "imgDesktop": "/assets/projects/adivina-d.png",
+      "description": [
+        "Juego de adivinanza al estilo 'Wordle' con temática de programación.",
+        "El jugador tiene seis intentos para adivinar la palabra oculta.",
+        "Luego de cada intento el juego proporciona pistas indicando qué letras están en la palabra y si están o no en la posición correcta."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "React"
+      ],
+      "imgDesktop": "/assets/projects/adivina-d.webp",
       "liveDemo": "https://adivinalapalabra.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/adivinalapalabra"
     },
     {
-
       "type": "project",
       "title": "Empa-pick",
-      "description": "'2 carne, 4 de choclo, 5 de carne, 1 de choclo'.<br>Esta app recolecta individualemnte el pedido de cada comensal para devolver un pedido general organizado y listo para pedir en el lugar de preferencia.<br>El resumen también incluye el monto total del pedido, y la division de gastos por cada comensal.",
-      "technologies": ["HTML", "CSS", "JavaScript"],
-      "imgDesktop": "/assets/projects/empa-d.png",
+      "description": [
+        "'2 carne, 4 de choclo, 5 de carne, 1 de choclo'.",
+        "Esta app recolecta individualmente el pedido de cada comensal para devolver un pedido general organizado y listo para pedir en el lugar de preferencia.",
+        "El resumen también incluye el monto total del pedido y la división de gastos por cada comensal."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "imgDesktop": "/assets/projects/empa-d.webp",
       "liveDemo": "https://empa-pick.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Empapick"
     },
     {
       "type": "project",
       "title": "MNTN",
-      "description": "Adaptación de diseño público Figma a código utilizando Bootstrap, Parallax y animaciones. ",
-      "technologies": ["HTML", "CSS", "Bootstrap", "JavaScript"],
-      "imgDesktop": "/assets/projects/maquetado2-d.png",
+      "description": [
+        "Adaptación de diseño público Figma a código utilizando Bootstrap, Parallax y animaciones."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "JavaScript"
+      ],
+      "imgDesktop": "/assets/projects/maquetado2-d.webp",
       "liveDemo": "https://maquetado-mntn.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado2",
       "figma": "https://www.figma.com/file/hMVtKRVHUxyY03knIrHkgG/MNTN-Landing-Page"
@@ -50,27 +129,44 @@
     {
       "type": "project",
       "title": "Digital Project",
-      "description": "Adaptación de diseño público Figma a código utilizando Bootstrap. ",
-      "technologies": ["HTML", "CSS", "Bootstrap"],
-      "imgDesktop": "/assets/projects/maquetado1-d.png",
+      "description": [
+        "Adaptación de diseño público Figma a código utilizando Bootstrap."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Bootstrap"
+      ],
+      "imgDesktop": "/assets/projects/maquetado1-d.webp",
       "liveDemo": "https://maquetado-digitalproject.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/Maquetado1",
-      "figma":"https://www.figma.com/file/hMVtKRVHUxyY03knIrHkgG/MNTN-Landing-Page"
+      "figma": "https://www.figma.com/file/hMVtKRVHUxyY03knIrHkgG/MNTN-Landing-Page"
     },
     {
       "type": "project",
       "title": "Cristales Curia",
-      "description": "'Hola mundo'.<br>Diseñé esta página para la empresa familiar antes de iniciar mis estudios en programación.<br>Con mis primeros conocimientos en HTML y CSS pude proyectarla en código, siedo así mi primenera landing page.  ",
-      "technologies": ["HTML", "CSS"],
-      "imgDesktop": "/assets/projects/cristales-d.png",
+      "description": [
+        "'Hola mundo'.",
+        "Diseñé esta página para la empresa familiar antes de iniciar mis estudios en programación.",
+        "Con mis primeros conocimientos en HTML y CSS pude proyectarla en código, siendo así mi primera landing page."
+      ],
+      "technologies": [
+        "HTML",
+        "CSS"
+      ],
+      "imgDesktop": "/assets/projects/cristales-d.webp",
       "liveDemo": "https://cristalescuria.netlify.app/",
       "sourceCode": "https://github.com/NataliaGiselleCuria/CristalesCuria"
     },
     {
       "type": "project",
       "title": "Portfolio",
-      "description":"",
-      "technologies": ["HTML", "CSS","Astro"],
+      "description": [],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "Astro"
+      ],
       "sourceCode": "https://github.com/NataliaGiselleCuria/portfolio"
     }
   ]
