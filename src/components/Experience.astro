@@ -312,14 +312,15 @@ const workProjects = projects.projects.filter(
 
     /* Cuando se expande, quitamos el desvanecimiento */
     .collapsed-text.expanded {
-        max-height: 1000px; /* Lo suficiente para mostrar todo el texto */
+        max-height: 100%;
         -webkit-mask-image: none;
         mask-image: none;
     }
 
     .toggle-btn {
+        font-family: 'Rajdhani', sans-serif;
         cursor: pointer;
-        background: none;
+        background: transparent;
         margin-bottom: 30px;
         color: var(--alt);
         border:none;
