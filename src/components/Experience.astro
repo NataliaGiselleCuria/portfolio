@@ -224,8 +224,7 @@ const workProjects = projects.projects.filter(
     }
 
     .desktop img,
-    .desktop video {
-        width: 70%;
+    .desktop video { 
         height: auto;
         object-fit: cover;
     }
@@ -248,8 +247,6 @@ const workProjects = projects.projects.filter(
     .desktop::-webkit-scrollbar-thumb:hover {
         background: var(--focus);
     }
-
-    
 
     .modal.hidden {
         display: none;
@@ -300,7 +297,7 @@ const workProjects = projects.projects.filter(
 
     /* Descripción desplegable */
     .collapsed-text {
-        max-height: 3em; /* Ajusta según la cantidad de líneas visibles */
+        max-height: 4.2em; /* Ajusta según la cantidad de líneas visibles */
         overflow: hidden;
         position: relative;
         
@@ -319,6 +316,7 @@ const workProjects = projects.projects.filter(
 
     .toggle-btn {
         font-family: 'Rajdhani', sans-serif;
+        font-size: larger;
         cursor: pointer;
         background: transparent;
         margin-bottom: 30px;

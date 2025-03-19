@@ -15,30 +15,6 @@
     font-weight: 200;
 }
 
-/* @font-face {
-    font-family: 'Montserrat';
-    src: url(/fonts/Montserrat-Light.ttf) format('truetype');
-    font-weight: 200;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url(/fonts/Montserrat-Regular.ttf) format('truetype');
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url(/fonts/Montserrat-Medium.ttf) format('truetype');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url(/fonts/Montserrat-SemiBold.ttf) format('truetype');
-    font-weight: 500;
-} */
-
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -52,6 +28,10 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--back);
+}
+
+main{
+    max-width: 65rem;
 }
 
 .pages {
@@ -119,6 +99,7 @@ html {
 
 body {
     background-image: url(/public/assets/back41.webp);
+    background-size: cover;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     color: white;
@@ -326,9 +307,7 @@ span.links a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-
-
+    gap: 30px;
 }
 
 h5 {
@@ -347,6 +326,7 @@ h5 {
 
 .desktop {
     width: 100%;
+    height: 300px;
     position: relative;
 }
 
@@ -406,18 +386,6 @@ footer p {
 }
 
 
-@media (min-width: 1400px) {
-
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1420px !important;
-    }
-}
-
 @media (max-width: 1400px) {
 
     .main {
@@ -429,10 +397,22 @@ footer p {
     }
 }
 
+@media (max-width: 950px){
+    .desktop {
+        height: auto;
+    }
+
+    .desktop img,
+    .desktop video { 
+        width: 100%;
+        height: auto;
+    }
+}
 @media (max-width: 768px) {
 
     main {
-        width: 90vw;
+        width: 80vw;
+        max-width: unset;
     }
 
     .pages {
@@ -491,11 +471,17 @@ footer p {
         justify-content: space-evenly;
     }
 
+   
+
 }
 
 @media (max-width: 576px) {
     body {
         background-position: top;
+    }
+
+    main {
+        width: 90vw;
     }
 
     p {
@@ -506,6 +492,8 @@ footer p {
         height: 90vh;
         padding: 0;
     }
+
+    
 
     .presentation {
         gap: 15px;
