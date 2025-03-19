@@ -503,6 +503,7 @@ footer p {
     }
 
     #home {
+        height: 90vh;
         padding: 0;
     }
 
